@@ -352,10 +352,10 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   }
 
   override fun onToolSelected(toolType: ToolType) {
-    when (toolType) {
-      val value = intent.extras
-      val customLabelShape = value?.getString("label_shape")
+    val value = intent.extras
+    val customLabelShape = value?.getString("label_shape")
 
+    when (toolType) {
       ToolType.SHAPE -> {
         mPhotoEditor!!.setBrushDrawingMode(true)
         mShapeBuilder = ShapeBuilder()
