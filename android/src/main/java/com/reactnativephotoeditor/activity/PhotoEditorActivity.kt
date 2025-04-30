@@ -353,11 +353,14 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
   override fun onToolSelected(toolType: ToolType) {
     when (toolType) {
+      val value = intent.extras
+      val customLabelShape = value?.getString("label_shape")
+
       ToolType.SHAPE -> {
         mPhotoEditor!!.setBrushDrawingMode(true)
         mShapeBuilder = ShapeBuilder()
         mPhotoEditor!!.setShape(mShapeBuilder)
-        mTxtCurrentTool!!.setText(R.string.label_shape)
+        mTxtCurrentTool!!.setText(if (customLabelShape.isNullOrBlank()) R.string.label_shape else customLabelShape)
         showBottomSheetDialogFragment(mShapeBSFragment)
       }
       ToolType.TEXT -> {

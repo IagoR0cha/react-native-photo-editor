@@ -3,6 +3,11 @@ import { NativeModules } from 'react-native';
 export type Options = {
   path: String;
   stickers: Array<String>;
+  translations?: Translations;
+};
+
+export type Translations = {
+  label_shape: string;
 };
 
 export type ErrorCode =

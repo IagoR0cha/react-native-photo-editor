@@ -6,13 +6,17 @@ let exportObject = {};
 const defaultOptions = {
   path: '',
   stickers: [],
+  label_shape: '',
 };
 
 exportObject = {
   open: (optionsEditor) => {
+    const { translations, ...currentOptions } = optionsEditor;
+
     const options = {
       ...defaultOptions,
-      ...optionsEditor,
+      ...currentOptions,
+      ...translations,
     };
     return new Promise(async (resolve, reject) => {
       try {
