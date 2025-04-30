@@ -1,1 +1,1 @@
-module.exports = require('./scripts/withPhotoEditor');
+module.exports = require('./plugins/withPhotoEditor');
